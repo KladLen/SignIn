@@ -4,12 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SignIn.Views"
+        xmlns:viewModel="clr-namespace:SignIn.ViewModels"
         mc:Ignorable="d"
         Title="LoginView" Height="600" Width="400"
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <viewModel:LoginViewModel/>
+    </Window.DataContext>
     
     <Border CornerRadius="10"
         Background="#FF4E4261"
@@ -66,6 +71,7 @@
                 </TextBlock>
 
                 <TextBox x:Name="Login"
+                         Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                          Height="25"
                          Background="Transparent"
                          BorderThickness="0,0,0,4"
@@ -82,6 +88,7 @@
                 </TextBlock>
 
                 <TextBox x:Name="Password"
+                         Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"
                          Height="25"
                          Background="Transparent"
                          BorderThickness="0,0,0,4"
@@ -92,12 +99,19 @@
                 </TextBox>
 
                 <Button x:Name="LogButton"
+                        Command="{Binding LoginCommand}"
                         Style="{StaticResource ButtonTheme}"
                         Content="Log in"
                         Height="40"
                         Width="80"
                         Margin="0,30,0,0">
                 </Button>
+
+                <TextBlock Text="{Binding ErrorMsg}"
+                           Foreground="Azure"
+                           Margin="0,20,0,0"
+                           FontSize="15">
+                </TextBlock>
                 
             </StackPanel>
         </Grid>

@@ -66,7 +66,7 @@ namespace SignIn.ViewModels
         }
         private bool CanExecuteLoginCommand(object obj)
         {
-            if (String.IsNullOrWhiteSpace(Username) || String.IsNullOrWhiteSpace(Password))
+            if (String.IsNullOrWhiteSpace(Username) || String.IsNullOrWhiteSpace(Password) || Username.Length < 3)
                 return false;
             else
                 return true;
