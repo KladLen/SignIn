@@ -5,8 +5,103 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SignIn.Views"
         mc:Ignorable="d"
-        Title="LoginView" Height="450" Width="800">
-    <Grid>
+        Title="LoginView" Height="600" Width="400"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    
+    <Border CornerRadius="10"
+        Background="#FF4E4261"
+        BorderBrush="#FF412641"
+        BorderThickness="2">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="LOG IN"
+                           Foreground="AntiqueWhite"
+                           Background="#FF4E4261"
+                           FontSize="14"
+                           VerticalAlignment="Center"
+                           Margin="10,0,0,0">
+                </TextBlock>
+                
+                <Button Grid.Column="1"
+                        Content="-"
+                        Foreground="AntiqueWhite"
+                        Style="{StaticResource ButtonTheme}"
+                        Click="MinimizeWindow" Height="26" Margin="2,2,2,0" VerticalAlignment="Top">
+                </Button>
+                
+                <Button Grid.Column="2"
+                        Content="x"
+                        Style="{StaticResource ButtonTheme}"
+                        Click="CloseWindow">
+                </Button>
+            </Grid>
+
+            <StackPanel Grid.Row="1"
+                        Orientation="Vertical"
+                        Width="260">
+                <Image Source="/Images/userwhite.png"
+                       Height="160"
+                       Width="160"
+                       Margin="0,20,0,0"></Image>
+                
+                <TextBlock Text="Login"
+                           Foreground="AntiqueWhite"
+                           FontSize="20"
+                           Margin="0,20,0,0">
+                </TextBlock>
+
+                <TextBox x:Name="Login"
+                         Height="25"
+                         Background="Transparent"
+                         BorderThickness="0,0,0,4"
+                         BorderBrush="AntiqueWhite"
+                         Margin="0,5,0,0"
+                         CaretBrush="AntiqueWhite"
+                         Foreground="AntiqueWhite">
+                </TextBox>
+
+                <TextBlock Text="Password"
+                           Foreground="AntiqueWhite"
+                           FontSize="20"
+                           Margin="0,20,0,0">
+                </TextBlock>
+
+                <TextBox x:Name="Password"
+                         Height="25"
+                         Background="Transparent"
+                         BorderThickness="0,0,0,4"
+                         BorderBrush="AntiqueWhite"
+                         Margin="0,5,0,0"
+                         CaretBrush="AntiqueWhite"
+                         Foreground="AntiqueWhite">
+                </TextBox>
+
+                <Button x:Name="LogButton"
+                        Style="{StaticResource ButtonTheme}"
+                        Content="Log in"
+                        Height="40"
+                        Width="80"
+                        Margin="0,30,0,0">
+                </Button>
+                
+            </StackPanel>
+        </Grid>
         
-    </Grid>
+    </Border>
+    
 </Window>
