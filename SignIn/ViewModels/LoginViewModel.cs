@@ -1,10 +1,12 @@
-﻿using System;
+﻿using SignIn.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using SignIn.Repositories;
 
 namespace SignIn.ViewModels
 {
@@ -14,6 +16,8 @@ namespace SignIn.ViewModels
         private string _username;
         private string _password;
         private string _errorMsg;
+
+        private IUserRepository userRepository;
 
         //Properties
         public string Username
@@ -58,11 +62,8 @@ namespace SignIn.ViewModels
         //Constructor
         public LoginViewModel()
         {
+            userRepository = new UserRepository();
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
-        }
-        private void ExecuteLoginCommand(object obj)
-        {
-            throw new NotImplementedException();
         }
         private bool CanExecuteLoginCommand(object obj)
         {
@@ -71,5 +72,17 @@ namespace SignIn.ViewModels
             else
                 return true;
         }
+        private void ExecuteLoginCommand(object obj)
+        {
+            if (userRepository.AuthenticateUser(Username, Password))
+            {
+                ErrorMsg = "OK";
+            }
+            else
+            {
+                ErrorMsg = "Incorrect name or password";
+            }
+        }
+        
     }
 }

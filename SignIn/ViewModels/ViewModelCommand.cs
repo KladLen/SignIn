@@ -35,9 +35,9 @@ namespace SignIn.ViewModels
             return _canExecuteAction == null ? true : _canExecuteAction(parameter);
         }
 
-        public void Execute(object? parameter)
+        public void Execute(object parameter)
         {
-            _canExecuteAction(parameter);
+            _executeAction(parameter);
         }
     }
 }
