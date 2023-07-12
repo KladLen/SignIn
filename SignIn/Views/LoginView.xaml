@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SignIn.Views"
-        xmlns:viewModel="clr-namespace:SignIn.ViewModels"
+        xmlns:viewModel="clr-namespace:SignIn.ViewModels" xmlns:components="clr-namespace:SignIn.Components"
         mc:Ignorable="d"
         Title="LoginView" Height="500" Width="360"
         AllowsTransparency="True"
@@ -87,16 +87,10 @@
                            Margin="0,20,0,0">
                 </TextBlock>
 
-                <TextBox x:Name="Password"
-                         Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"
-                         Height="25"
-                         Background="Transparent"
-                         BorderThickness="0,0,0,4"
-                         BorderBrush="AntiqueWhite"
-                         Margin="0,5,0,0"
-                         CaretBrush="AntiqueWhite"
-                         Foreground="AntiqueWhite">
-                </TextBox>
+                <components:BindablePasswordBox
+                         Password="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Margin="0,5,0,0">
+                </components:BindablePasswordBox>
 
                 <Button x:Name="LogButton"
                         Command="{Binding LoginCommand}"
