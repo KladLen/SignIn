@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace SignIn.Models
 {
-    interface IUserRepository
+    public interface IUserRepository
     {
         bool AuthenticateUser(string login, string password);
+        UserModel GetUserByLogin(string login);
     }
 }

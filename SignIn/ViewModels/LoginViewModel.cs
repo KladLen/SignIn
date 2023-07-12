@@ -76,7 +76,8 @@ namespace SignIn.ViewModels
         {
             if (userRepository.AuthenticateUser(Username, Password))
             {
-                ErrorMsg = "OK";
+                UserModel user = userRepository.GetUserByLogin(Username);
+                ErrorMsg = "Hello " + user.Name + "!";
             }
             else
             {
